@@ -1,0 +1,25 @@
+sync:
+  defaults:
+    ignore:
+      vcs: true
+      paths:
+        - "/.git"
+        - "/vendor"
+        - "/storage/logs"
+        - "/tmp"
+        - "/node_modules"
+    permissions:
+      defaultOwner: "id:1000"
+      defaultGroup: "id:82"
+  mutage-test:
+    alpha: "."
+    # vm-xxxの部分はssh-configで設定したホスト名を指定する
+    beta: "vm-xxx:/home/vagrant/app"
+    mode: "two-way-resolved"
+    configurationBeta:
+      permissions:
+        defaultOwner: vagrant
+        defaultGroup: vagrant
+        defaultFileMode: 755
+        defaultDirectoryMode: 755
+l
