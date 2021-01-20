@@ -17,7 +17,7 @@ Vagrant.configure('2') do |config|
 
   config.vm.synced_folder './', '/home/vagrant/app', type: "rsync",
     rsync_auto: true,
-    rsync__exclude: ['.git/', 'node_modules/', 'storage/logs', 'tmp/', 'vendor/']
+    rsync__exclude: ['.git/', 'node_modules/', 'storage/logs/*', 'tmp/', 'vendor/']
 
   config.vm.provision 'shell', inline: <<-SHELL
     curl -fsSL https://get.docker.com -o get-docker.sh

@@ -1,5 +1,5 @@
 ## 環境要件
-a
+
 * Mac OS
 * Virtual Box
     * https://www.oracle.com/technetwork/jp/server-storage/virtualbox/overview/index.html
@@ -14,17 +14,24 @@ a
     
 ## 環境の起動
 
+### (初回だけ)mutagen.ymlの設定
+下記3箇所を適当な値に設定する
+
+* ${USER}
+* ${GROUP}
+* ${HOST}
+
 ### 1. 環境起動
 
 ```bash
 vagrant up
 ```
 
-初回だけ実施
+(初回だけ)sshの設定
 ```bash
 vagrant ssh-config --host ${任意のホスト名} >> ~/.ssh/config
 ```
-ここで設定した任意のホスト名はmutagen.ymlをbetaに設定する
+ここで設定した任意のホスト名はmutagen.ymlに設定した${HOST}と同じ値を指定する
 
 ### 2. docker起動
 
@@ -46,6 +53,16 @@ docker-compose up -d
 mutagen project start
 mutagen syn list
 ```
+
+### (初回だけ)laravelの初期設定：vm上で実施
+
+```bash
+cd ~/app
+cp .env.example .env
+docker-compose run app php artisan key:generate
+
+```
+
 
 ## 環境の停止
 
