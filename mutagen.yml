@@ -14,7 +14,7 @@ sync:
   source:
     alpha: "."
     # vm-xxxの部分はssh-configで設定したホスト名を指定する
-    beta: "${USER}:/home/vagrant/app"
+    beta: "${HOST}:/home/vagrant/app"
     mode: "two-way-resolved"
     configurationAlpha:
       permissions:
