@@ -17,9 +17,9 @@
 ### (初回だけ)mutagen.ymlの設定
 下記3箇所を適当な値に設定する
 
-* ${USER}
-* ${GROUP}
-* ${HOST}
+* ${USER}:ローカルの作業ユーザー
+* ${GROUP}:ローカルの作業ユーザーが所属するグループ
+* ${HOST}:vagrant接続用に.ssh/configに設定するホスト名
 
 ### 1. 環境起動
 
@@ -44,7 +44,6 @@ ssh接続したVirtualBoxの仮想マシン上で実行
 cd ap
 docker-compose run app composer install
 docker-compose up -d
-
 ```
 
 ### 3. mutagen 起動
@@ -60,8 +59,11 @@ mutagen syn list
 cd ~/app
 cp .env.example .env
 docker-compose run app php artisan key:generate
-
+chmod 777 -R storage
 ```
+ブラウザから下記でLaravelのページが見えればOK
+
+http://192.168.50.10
 
 
 ## 環境の停止
@@ -76,5 +78,3 @@ vagrant halt
 ## 補足
 
 ### vagrant up でpermissionエラーが出る場合
-
-
