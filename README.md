@@ -7,7 +7,7 @@
     * https://www.vagrantup.com/
 * Vagrant-Plugin
     ```
-    vagrant plugin install vagrant-disksize vagrant-hostsupdater
+    vagrant plugin install vagrant-disksize
     ```
 * mutagen
     * https://mutagen.io/documentation/introduction/installation
